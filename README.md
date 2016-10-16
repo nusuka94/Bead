@@ -44,6 +44,56 @@ illetve raktárban levő árut továbbítani a megfelelő helyre.
   -	Raktárban levő áru adatainak módosítása
   -	Raktárban levő áru továbbítása szállításra (állapot megváltoztatása „szállítható”-ra)
   -	Raktárban levő áruhoz megjegyzés fűzése
+![Usecase diagram](docs/images/usecase.png)
 
+**Példa folyamat**: Beérkező áru rögzítése
+
+1. A felhasználó bejelentkezik vagy regisztrál a főoldalon.
+2. Bejelentkezés után a felhasználó megnyomja az "Áru rögzítése" gombot.
+3. A megjelenő űrlapon rögzíti a szükséges adatokat.
+4. Rákattint a "Mentés" gombra.
+
+![Folyamatábra](docs/images/folyamatábra.png)
+
+### Tervezés
+
+**Architektúra terv**
+
+##### Oldaltérkép
+*	Publikus
+  - Főoldal
+  - Bejelentkezés
+  - Regisztráció
+  - Áruk böngészése
+* Bejelentkezett felhasználó
+  -	Főoldal
+  - Kijelentkezés  
+  - Áruk böngészése
+  - Új áru rögzítése
+  - Áru adatainak módosítása
+  - Áru törlése
+  - Megjegyzés fűzése áruhoz
+  - Áru szállításra bocsátása
+  
+##### Végpontok
+
+*	GET/: főoldal
+*	GET/login: bejelentkező oldal
+*	POST/login: bejelentkezési adatok felküldése
+*	GET/signup: regisztrációs oldal
+*	POST/signup: regisztrációs adatok felküldése
+*	GET/logout: kijelentkező oldal
+*	GET/products: áruk listájának oldala
+*	GET/products/newProduct: új áru rögzítése
+*	POST/products/newProduct: új áru adatainak felküldése
+*	GET/products/getProduct/:id: áru adatok
+*	POST/products/newComment/:id: megjegyzés hozzáfűzése az áruhoz
+*	GET/products/editProduct/:id: áru adatainak módosítása
+*	POST/products/editProduct/:id: módosított adatok felküldése
+*	GET/products/deleteProduct/:id: áru törlése
+
+**Adatmodell**
+
+![Adatmodell](docs/images/adatmodell.png)
 
 
